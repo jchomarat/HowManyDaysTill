@@ -1,5 +1,5 @@
 node_modules/
-.vscode
+.vscode/
 *.js.map
-.env
-.bot
+*.env
+*.bot
