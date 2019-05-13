@@ -1,0 +1,57 @@
+{
+    "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.3/MicrosoftTeams.schema.json",
+    "manifestVersion": "1.3",
+    "version": "1.0",
+    "id": "baa08974-8bf2-4a0c-9e9a-36f1cec0d4d2",
+    "packageName": "howmanydaystill.microsoftteams.app",
+    "developer": {
+        "name": "Julien Chomarat",
+        "websiteUrl": "https://portal.azure.com",
+        "privacyUrl": "https://portal.azure.com",
+        "termsOfUseUrl": "https://portal.azure.com"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "How many days till",
+        "full": "How many days till"
+    },
+    "description": {
+        "short": "How many days till",
+        "full": "Days counter till a specific event or date"
+    },
+    "accentColor": "#40497E",
+    "bots": [
+        {
+            "botId": "baa08974-8bf2-4a0c-9e9a-36f1cec0d4d2",
+            "scopes": [
+                "personal"
+            ],
+            "commandLists": [
+                {
+                    "scopes": [
+                        "personal"
+                    ],
+                    "commands": [
+                        {
+                            "title": "How many days till",
+                            "description": "Specify here a date or a specific event, like Christmas for instance"
+                        }
+                    ]
+                }
+            ],
+            "supportsFiles": false,
+            "isNotificationOnly": false
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": [
+        "howmanydaystill.azurewebsites.net",
+        "westus.api.cognitive.microsoft.com"
+    ]
+}
