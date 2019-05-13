@@ -29,26 +29,22 @@ class Luis {
    * @param {TurnContext} on turn context object.
    */
   async process(turnContext) {
-    // Perform a call to LUIS to retrieve results for the user's message.
-    const results = await this.luisRecognizer.recognize(turnContext);
+        // Perform a call to LUIS to retrieve results for the user's message.
+        const results = await this.luisRecognizer.recognize(turnContext);
 
-    // Since the LuisRecognizer was configured to include the raw results, get the `topScoringIntent` as specified by LUIS.
-    const topIntent = results.luisResult.topScoringIntent;
-    let topEntity;
-    if (results.luisResult.entities.length > 0) {
-      topEntity = results.luisResult.entities[0];
-    }
+        // Since the LuisRecognizer was configured to include the raw results, get the `topScoringIntent` as specified by LUIS.
+        const topIntent = results.luisResult.topScoringIntent;
+        let topEntity;
+        if (results.luisResult.entities.length > 0) {
+        topEntity = results.luisResult.entities[0];
+        }
 
-    if (topIntent.intent !== 'None' && topEntity != null) {
-      return this.processEntity(topEntity);
-    } else {
-        // If the top scoring intent was "None" tell the user no valid intents were found and provide help.
-        return "Sorry, I did not understand your question!";
-    }
-  }
-
-    countDays(from, to) {
-        
+        if (topIntent.intent !== 'None' && topEntity != null) {
+        return this.processEntity(topEntity);
+        } else {
+            // If the top scoring intent was "None" tell the user no valid intents were found and provide help.
+            return "Sorry, I did not understand your question!";
+        }
     }
 
     /**
@@ -98,7 +94,7 @@ class Luis {
                             const daysCount = countDays(now, targetDate);
                             reply = `It's in ${ daysCount } days.`;
                         } else {
-                            // Date is ambigous. If a day, then get current month & current year - if no day, throw error
+                            // Date is ambigous. If a day, then get current month & current year - if no day, throw standard reply
                             if (o.dayOfMonth !== undefined) {
                                 const year = (o.year === undefined ? now.getFullYear() : o.year);
                                 const month = (o.month === undefined ? now.getMonth() + 1 : o.month);
